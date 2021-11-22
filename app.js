@@ -94,9 +94,7 @@ function showButton(){
     buttons.includes(x.category) ? null : buttons.push(x.category)
   });
 
-  //kategorileri tekrarsız yapmanın 2. yolu
-  //buttons = [... new Set(buttons)];
-  //buttons.unshift("All")
+ 
 
   for(let i =0; i<buttons.length; i++){
     let btn = document.createElement("button");
@@ -113,14 +111,12 @@ showButton();
 
 function menuList(){
 
-  //Butonlara tıklandığında önceki menünün ekrandan temizlenmesi için innerHTML temizlenir.
+  
   sectionCenter.innerHTML = "";
 
   let categoryMenuList = menu;
 
-  //menuList fonksiyonu bir butona basıldığında butonun innerHTML'indeki bilgiyle filtreleme yaparak menuleri ekrana getiriyor.
-  //Sitenin ilk açılışında bütün ürünlerin ekranda butona basılmadan gözükmesi istenildiği için (all butonuna basılmış gibi) 
-  //if bloğu kullanılmıştır. İlk açılışta this.innerHTML değeri undefined olacağı için filtreleme yapılmadan tüm menü gösterilecek.
+  
   if(this.innerHTML){
     categoryMenuList  = menu.filter(x => x.category == (this.innerHTML == "All" ? x.category : this.innerHTML ))
   }
